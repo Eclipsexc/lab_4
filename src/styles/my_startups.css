@@ -1,0 +1,305 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600&family=Roboto:wght@400;700&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: url('../assets/images/image5.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: -1;
+}
+
+#header-container, #footer-container {
+  width: 100%;
+  position: relative;
+  z-index: 10;
+}
+
+.market-container {
+  max-width: 1450px;
+  margin: auto;
+  padding: 20px;
+  flex: 1;
+  z-index: 2;
+}
+
+h1.non-clickable {
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  font-size: 32px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  border-bottom: 2px solid #007bff;
+  display: inline-block;
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+  pointer-events: none;
+  user-select: none;
+}
+
+.competitors-grid-wrapper {
+  background: #1a1a1a;
+  border-radius: 15px;
+  padding: 20px 40px 40px;
+  margin: 30px auto;
+  max-width: 97%;
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.competitors-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 20px;
+}
+
+.competitor-card {
+  background: white;
+  border-radius: 12px;
+  width: 280px;
+  overflow: hidden;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  padding: 20px;
+  text-align: center;
+}
+
+.competitor-card:hover {
+  transform: scale(1.05);
+}
+
+.competitor-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.competitor-info p {
+  margin: 6px 0;
+  font-size: 15px;
+  color: #444;
+  font-weight: 500;
+}
+
+.add-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f0f0f0;
+  border: 2px dashed #007bff;
+  transition: transform 0.3s ease-in-out, background 0.3s;
+  text-decoration: none;
+}
+
+.add-card:hover {
+  background: #e0eaff;
+  transform: scale(1.05);
+}
+
+.add-card span {
+  font-size: 60px;
+  color: #007bff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.empty-info {
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(145deg, #f8f9fa, #ffffff);
+  color: #333;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 2px dashed #007bff;
+  min-height: 180px;
+  max-width: 280px;
+  width: 100%;
+  text-align: center;
+  word-wrap: break-word;
+}
+
+.learn-more-btn {
+  display: block;
+  margin-top: 12px;
+  padding: 10px 16px;
+  background: #007bff;
+  color: white;
+  font-weight: bold;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.3s;
+  text-align: left;
+}
+
+.learn-more-btn:hover {
+  background: #0056b3;
+}
+
+.card-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+  gap: 10px;
+}
+
+.edit-btn {
+  background: #dc3545;
+  border: none;
+  border-radius: 6px;
+  padding: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.edit-btn img {
+  width: 20px;
+  height: 20px;
+}
+
+.edit-btn:hover {
+  background: #b02a37;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  width: 800px;
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Inter', sans-serif;
+}
+
+.modal h2 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #333;
+  border-bottom: 3px solid #007bff;
+  padding-bottom: 8px;
+  width: 100%;
+}
+
+.modal-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+  margin-top: 20px;
+  text-align: left;
+}
+
+.modal-left, .modal-right {
+  width: 50%;
+}
+
+.modal-left p, .modal-right p {
+  margin: 10px 0;
+  font-size: 18px;
+  color: #333;
+  line-height: 1.5;
+}
+
+.modal-left p strong, .modal-right p strong {
+  color: #007bff;
+  font-weight: bold;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #007bff;
+  transition: 0.3s ease;
+}
+
+.close-btn:hover {
+  color: #0056b3;
+  transform: scale(1.2);
+}
+
+@media (max-width: 1024px) {
+  .modal-content {
+    width: 90%;
+  }
+  .modal-grid {
+    flex-direction: column;
+  }
+  .modal-left, .modal-right {
+    width: 100%;
+  }
+  .competitor-card {
+    width: 45%;
+  }
+}
+
+@media (max-width: 768px) {
+  h1.non-clickable {
+    font-size: 26px;
+  }
+  .competitor-card {
+    width: 100%;
+  }
+  .modal-content {
+    padding: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1.non-clickable {
+    font-size: 22px;
+  }
+  .modal-content {
+    padding: 20px;
+  }
+  .modal h2 {
+    font-size: 20px;
+  }
+  .modal-left p, .modal-right p {
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,322 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  background: url('../assets/images/image5.jpg') no-repeat center center fixed;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: -1;
+}
+
+#header-container, #footer-container {
+  width: 100%;
+  position: relative;
+  z-index: 10;
+}
+
+#footer-container {
+  margin-top: auto;
+}
+
+.market-container {
+  max-width: 1450px;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.competitors-grid-wrapper {
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px;
+  padding: 20px 40px 40px;
+  margin: 30px auto;
+  max-width: 97%;
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+  text-align: center;
+  overflow-y: auto;
+  max-height: 85vh;
+  scrollbar-width: thin;
+  scrollbar-color: #007bff transparent;
+}
+
+.competitors-grid-wrapper::-webkit-scrollbar {
+  width: 10px;
+}
+.competitors-grid-wrapper::-webkit-scrollbar-thumb {
+  background-color: #007bff;
+  border-radius: 5px;
+}
+.competitors-grid-wrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.competitors-grid-wrapper h1 {
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  font-size: 32px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  border-bottom: 2px solid #007bff;
+  display: inline-block;
+  padding-bottom: 5px;
+  position: relative;
+  top: -15px;
+  pointer-events: none;
+  user-select: none;
+}
+
+.filter-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.filter-container label {
+  margin-bottom: 6px;
+  font-size: 15px;
+  color: #ccc;
+  font-weight: 500;
+}
+
+.filter-container select {
+  background-color: #2a2a2a;
+  color: #fff;
+  border: 1px solid #555;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 16px;
+  font-family: inherit;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  max-width: 300px;
+}
+
+.filter-container select:focus {
+  border-color: #2d5fff;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(45, 95, 255, 0.25);
+}
+
+.filter-container option {
+  background-color: #1e1e1e;
+  color: #fff;
+}
+
+.competitors-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.competitor-card {
+  background: #fff;
+  color: #000;
+  border-radius: 16px;
+  width: 280px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+  position: relative;
+  padding: 20px;
+  text-align: center;
+}
+
+.competitor-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.competitor-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.competitor-info {
+  text-align: center;
+  font-size: 18px;
+  color: #000;
+}
+.competitor-info p {
+  margin: 10px 0;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.learn-more-btn {
+  display: inline-block;
+  background: #007bff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  transition: background 0.3s;
+  text-align: center;
+  margin: 20px auto;
+  cursor: pointer;
+}
+.learn-more-btn:hover {
+  background: #0056b3;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+}
+.modal.show {
+  display: flex;
+}
+
+.modal-content {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  width: 800px;
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Inter', sans-serif;
+}
+
+.modal h2 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #333;
+  border-bottom: 3px solid #007bff;
+  display: inline-block;
+  padding-bottom: 8px;
+  width: 100%;
+}
+
+.modal-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+  margin-top: 20px;
+  text-align: left;
+}
+
+.modal-left, .modal-right {
+  width: 50%;
+}
+.modal-left p, .modal-right p {
+  margin: 10px 0;
+  font-size: 18px;
+  color: #333;
+  line-height: 1.5;
+}
+.modal-left p strong, .modal-right p strong {
+  color: #007bff;
+  font-weight: bold;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #007bff;
+  transition: 0.3s ease;
+}
+.close-btn:hover {
+  color: #0056b3;
+  transform: scale(1.2);
+}
+
+@media (max-width: 1024px) {
+  .modal-content {
+    width: 90%;
+  }
+  .modal-grid {
+    flex-direction: column;
+  }
+  .modal-left, .modal-right {
+    width: 100%;
+  }
+  .competitor-card {
+    width: 45%;
+  }
+}
+@media (max-width: 768px) {
+  .competitors-grid-wrapper h1 {
+    font-size: 26px;
+  }
+  .competitor-card {
+    width: 100%;
+  }
+  .modal-content {
+    padding: 25px;
+  }
+}
+@media (max-width: 480px) {
+  .competitors-grid-wrapper h1 {
+    font-size: 22px;
+  }
+  .modal-content {
+    padding: 20px;
+  }
+  .modal h2 {
+    font-size: 20px;
+  }
+  .modal-left p, .modal-right p {
+    font-size: 16px;
+  }
+}
+
+.filter-container select,
+.filter-container select:focus,
+.filter-container select:hover,
+.filter-container select:active {
+  background-color: #2a2a2a !important;
+  color: #fff !important;
+  border: 1px solid #555 !important;
+  box-shadow: none !important;
+}

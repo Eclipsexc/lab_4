@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -12,7 +12,6 @@ import MyProfile from "./pages/MyProfile";
 import MyStartups from "./pages/MyStartups";
 import CreateStartup from "./pages/CreateStartup";
 import EditStartup from "./pages/EditStartup";
-import Login from "./pages/Login";
 
 import "./styles/header_footer.css";
 import "./styles/styles.css";
@@ -21,12 +20,11 @@ import "./styles/charts.css";
 import "./styles/market.css";
 import "./styles/my_profile.css";
 import "./styles/my_startups.css";
-import "./styles/startup_form.css";
-import "./styles/Login.css";
+import "./styles/startup_form.css"; // ✅ замість create/edit
 
 function App() {
   return (
-    <BrowserRouter>
+    <Router>
       <div
         className="app-wrapper"
         style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}
@@ -42,12 +40,11 @@ function App() {
             <Route path="/my_startups" element={<MyStartups />} />
             <Route path="/create_startup" element={<CreateStartup />} />
             <Route path="/edit_startup" element={<EditStartup />} />
-            <Route path="/login" element={<Login />} /> {/* ДОДАТИ МАРШРУТ */}
           </Routes>
         </main>
         <Footer />
       </div>
-    </BrowserRouter>
+    </Router>
   );
 }
 
